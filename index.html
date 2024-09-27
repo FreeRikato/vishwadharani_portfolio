@@ -1,13 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Vishwa Dharani | Portfolio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      /* Ensures the sidebar is fixed to the left */
+      aside {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 25%;
+        background-color: #e2e8f0; /* Tailwind's bg-gray-200 */
+        padding: 2rem;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Main content takes the rest of the screen and scrolls */
+      main {
+        margin-left: 25%; /* Account for the sidebar width */
+        padding: 2rem;
+        height: 100vh;
+        overflow-y: auto;
+        scroll-behavior: smooth; /* Enables smooth scrolling */
+      }
+
+      /* Add smooth scroll behavior for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Sidebar links hover effect */
+      aside nav a:hover {
+        text-decoration: underline;
+        color: #1a202c; /* Tailwind's text-gray-900 */
+      }
+
+      /* Animation Keyframes */
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Initial hidden state */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      /* Visible state when animated */
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- Sidebar -->
+    <div class="flex">
+      <!-- Left Sidebar Section -->
+      <aside>
+        <div class="flex flex-col items-center">
+          <img src="./public/WhatsApp Image 2024-09-28 at 01.02.31.jpeg" alt="Vishwa Dharani" class="rounded-full w-40 h-40 object-cover" />
+          <h2 class="text-xl font-bold mt-4">Vishwa Dharani</h2>
+          <p class="text-sm text-gray-600">Data Science Student</p>
+          <p class="text-sm mt-4">Pushing the limits of data and AI.</p>
+          <!-- Social Icons -->
+          <div class="flex mt-4 space-x-4">
+            <a href="https://github.com/vishwadharani2003"><img src="./public/Octicons-mark-github.svg" class="w-6 h-6" alt="GitHub" /></a>
+            <a href="http://www.linkedin.com/in/vishwadharani-evr-7b9074227"><img src="./public/icons8-linkedin.svg" class="w-6 h-6" alt="LinkedIn" /></a>
+          </div>
+        </div>
+        <!-- Sidebar Links -->
+        <nav class="mt-8 space-y-4">
+          <a href="#about" class="block text-gray-700 hover:text-gray-900">About</a>
+          <a href="#experience" class="block text-gray-700 hover:text-gray-900">Experience</a>
+          <a href="#skills" class="block text-gray-700 hover:text-gray-900">Skills</a>
+          <a href="#projects" class="block text-gray-700 hover:text-gray-900">Projects</a>
+          <a href="#achievements" class="block text-gray-700 hover:text-gray-900">Achievements</a>
+          <a href="#contact" class="block text-gray-700 hover:text-gray-900">Contact</a>
+        </nav>
+      </aside>
+
+      <!-- Main Content Section -->
+      <main>
+        <!-- About Section -->
+        <section id="about" class="mb-12">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">About Me</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">About Vishwa Dharani</h2>
+          <p class="text-lg text-gray-800 animate-on-scroll">
+            I am a final-year M.Sc Data Science student at Thiagarajar College of Engineering with a keen interest in Machine Learning, Data Science, and AI technologies.
+          </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-12">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">Experience</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">Work Experience</h2>
+          <div class="space-y-6">
+            <div class="animate-on-scroll">
+              <h4 class="text-xl font-semibold">Research Intern</h4>
+              <p class="text-sm text-gray-600">International Institute of Information Technology | July - Dec 2023</p>
+              <ul class="list-disc ml-5 mt-2 text-gray-800">
+                <li>Worked on a supply chain analytics project using SQL and Power BI for data processing and visualization.</li>
+                <li>Contributed to a stock price prediction project using statistical methods and machine learning techniques.</li>
+              </ul>
+            </div>
+
+            <div class="animate-on-scroll">
+              <h4 class="text-xl font-semibold">Data Hubblex</h4>
+              <p class="text-sm text-gray-600">Oct-May 2022</p>
+              <ul class="list-disc ml-5 mt-2 text-gray-800">
+                <li>Developed a plant disease detection system using CNN models, achieving 96.5% accuracy.</li>
+                <li>Built a scalable machine learning pipeline for churn prediction, deployed via a FastAPI backend.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-12">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">Skills</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">Skills</h2>
+          <ul class="list-disc ml-5 mt-2 text-gray-800 animate-on-scroll">
+            <li>Programming Languages: Python, C++, Git</li>
+            <li>Frameworks: TensorFlow, Langchain</li>
+            <li>Technologies: NLP for ML, Deep Learning, Machine Learning</li>
+          </ul>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-12">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">Projects</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">Projects</h2>
+          <ul class="list-disc ml-5 mt-2 text-gray-800 animate-on-scroll">
+            <li>Dermatological Diagnosis App: Developed an AI platform for skin condition analysis.</li>
+            <li>Toxic Comment Classification: Built a classifier using Keras for text data analysis.</li>
+            <li>Salesmate AI: Created an AI-powered email outreach system using Langchain and FastAPI.</li>
+            <li>Marketing Analytics Dashboard: Implemented a dashboard for marketing performance analysis.</li>
+          </ul>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="mb-12">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">Achievements</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">Achievements</h2>
+          <ul class="list-disc ml-5 mt-2 text-gray-800 animate-on-scroll">
+            <li>Advanced to the top 20 teams in the Skillenza PIWOT Hackathon.</li>
+            <li>Finalist in Prometeo Hackathon at IIT Jodhpur.</li>
+            <li>Top 5 in Data Vista competition at Thiagarajar School of Management.</li>
+            <li>Participant in Kleos 2.0 national hackathon at RAIT ACM.</li>
+          </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+          <h3 class="text-xs uppercase tracking-wide text-gray-600 animate-on-scroll">Contact</h3>
+          <h2 class="text-3xl font-bold mb-6 animate-on-scroll">Get in Touch</h2>
+          <p class="animate-on-scroll">If you would like to collaborate or have any inquiries, feel free to reach out!</p>
+          <p class="mt-2 animate-on-scroll">📧 Email: <a href="mailto:vishwadharaniv2003@gmail.com" class="text-blue-600 hover:underline">vishwadharaniv2003@gmail.com</a></p>
+        </section>
+      </main>
+    </div>
+
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        animateElements.forEach(element => {
+          observer.observe(element);
+        });
+      });
+    </script>
   </body>
 </html>
